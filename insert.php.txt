@@ -1,0 +1,99 @@
+<?php
+
+$Name = $_POST[‘username’];
+
+$Gender = $_POST[‘gender’];
+
+$E_mail = $_POST[‘email’];
+
+$Contact_no = $_POST[‘phone’];
+
+
+
+If (!empty($username) || !empty($gender) || !empty($email) || !empty($phone))
+
+{
+
+$host = “localhost”;
+
+$dbUsername = “root”;
+
+$dbPassword = “root”;
+
+$dbname = “Wonder_Women";
+
+
+
+$conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
+
+
+
+if (mysqli_connect_error()){
+
+die(‘Connect Error(‘ . mysqli_connect_errno(). ’)’ . mysqli_connect_error() );
+
+} 
+
+else{
+
+$SELECT = “SELECT Name From userinfo Where Name = ? Limit 1”;
+
+$INSERT = “INSERT Into userinfo(Name,E_mail, Contact_no, Gender) values(?,?,?,?);
+
+
+
+$stmt = $conn->prepare($SELECT);
+
+$stmt ->bind_param(“s”, $Name);  
+
+$stmt ->execute();
+
+$stmt -> bind_result($Name);
+
+$stmt->store_result();
+
+$rnum = $stmt -> num_rows;
+
+
+
+If ($rnum == 0){
+
+$stmt -> close();
+
+$stmt = $conn->prepare($INSERT);
+
+$stmt->bind_param(“ssis”, $Name, $E_mail, $Contact_no, $Gender);
+
+$stmt -> execute();
+
+echo "Succesful addition of entry";
+
+}
+
+
+
+else{
+
+echo “Someone already registered using this email!”; 
+
+}
+
+$stmt->close();
+
+$conn->close();
+
+
+
+}
+
+else{
+
+echo “All fields are required”;
+
+die();
+
+
+
+}
+
+?>

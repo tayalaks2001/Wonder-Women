@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Wonder Women</title>
+
+	<link href  = "css/Style.css" rel = "stylesheet" type = "text/css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	</head>
+<body>
+<img src= "Images/Logo1.png" style = "position: absolute; top: 240px; left: 492px; height:320px; width:580px">
+	<nav class = "row">
+	<header>Menu<span>x</span></header>
+	<ol>
+		<li class = "row-item"><a href = "#0">HOME</a></li>
+		<li class = "row-item"><a href = "UserInfo.html">USER INFO</a></li>
+		<li class = "row-item"><a href = "AboutUs.html">ABOUT US</a></li>
+		<li class = "row-item"><a href = "purchase.html">BROWSE ITEMS</a></li>
+		<li class = "row-item"><a href = "blogs.html">BLOG</a></li>
+		<li class = "row-item"><a href = "ContactUs.html">CONTACT US</a></li>
+	</ol>
+	<footer><button aria-label="Toggle Menu">Toggle</button></footer>
+</nav> 
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+    
+   var $els = $('.row a, .row header');
+var count = $els.length;
+var grouplength = Math.ceil(count/3);
+var groupNumber = 0;
+var i = 1;
+$('.row').css('--count',count+'');
+$els.each(function(j){
+    if ( i > grouplength ) {
+        groupNumber++;
+        i=1;
+    }
+    $(this).attr('data-group',groupNumber);
+    i++;
+});
+
+$('.row footer button').on('click',function(e){
+    e.preventDefault();
+    $els.each(function(j){
+        $(this).css('--top',$(this)[0].getBoundingClientRect().top + ($(this).attr('data-group') * -15) - 20);
+        $(this).css('--delay-in',j*.1+'s');
+        $(this).css('--delay-out',(count-j)*.1+'s');
+    });
+    $('.row').toggleClass('closed');
+    e.stopPropagation();
+});
+
+
+ 
+    
+</script>		
+</body>
+</html>
