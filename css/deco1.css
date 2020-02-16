@@ -1,0 +1,106 @@
+body {
+  background-image: url(..//Images/bcg1.jfif);
+  margin: 0;
+  background-size: cover;
+  color: white;
+}
+.contact-area{
+    padding: 100px 0;
+}
+
+.divider
+{
+    border-right: 1px solid #d9d9d9;
+}
+.contact-area h3
+{
+    text-transform: uppercase;
+    margin-bottom: 18px;
+	color: white;
+}
+
+
+.contact-area h4
+{
+    color:#3a3a3a;
+    font-weight:700;
+    text-transform: capitalize;
+    margin-bottom :4px;
+    letter-spacing:0.025em;
+}
+.contact-area span
+{
+    display: block;
+	color: white;
+    color:#3a3a3a;
+    font-size: 12px;
+    line-height: normal;
+    letter-spacing:0.025em;
+}
+.contact-area ul li
+{
+    overflow:hidden;
+    margin-bottom : 25px;
+}
+.contact-area ul li:last-child
+{
+    margin-bottom: 0;
+}
+.contact-address ul li.fa
+{
+    float:left;
+    width:25px;
+    color: deepskyblue;
+    font-size: 30px;
+	color: white;
+}
+.contact-address ul li.address-phone
+{
+    float:left;
+    width:180px:
+    padding-left: 25px;
+	color: white;
+}
+
+
+
+
+.contact-block
+{
+    padding-left:25px;
+}
+
+
+.contact-area .form-control, .contact-area textarea
+{
+    font-family: 'Roboto',sans-serif;
+    background: #f8fdff;
+    border: 1px solid #a5d3eb;
+    padding; 10px 12px;
+    color:#bdbdbd;
+    height: 45px;
+    font-weight: 400;
+    border-radius: 0;
+}
+
+
+
+.contact-area .form-group
+{
+    margin-bottom: 30px;
+}
+
+
+.contact-area textarea
+{
+    min-height: 115px;
+}
+
+
+
+
+.contact-area .default-btn
+{
+    padding:10px;
+}
+
